@@ -2,7 +2,7 @@
 import streamlit as st
 from snowflake.snowpark.context import get_active_session
 from snowflake.snowpark.functions import col
-import pandas as pd
+#import pandas as pd
 
 # Write directly to the app
 st.title(":cup_with_straw: Customize Your Smoothie :cup_with_straw:")
@@ -20,7 +20,7 @@ my_dataframe = session.table("smoothies.public.fruit_options").select(col('fruit
 #st.dataframe(data=my_dataframe, use_container_width=True)
 #st.stop()
 
-pd_df = my_dataframe.to_pandas()
+#pd_df = my_dataframe.to_pandas()
 #st.dataframe(pd_df)
 #st.stop()
 
@@ -39,8 +39,8 @@ if ingredients_list:
     for fruit_choosen in ingredients_list:
         ingredients_string += fruit_choosen + ' '
 
-        search_on=pd_df.loc[pd_df['FRUIT_NAME'] == fruit_chosen, 'SEARCH_ON'].iloc[0]
-        st.write('The search value for ', fruit_chosen,' is ', search_on, '.')
+        #search_on=pd_df.loc[pd_df['FRUIT_NAME'] == fruit_chosen, 'SEARCH_ON'].iloc[0]
+        #st.write('The search value for ', fruit_chosen,' is ', search_on, '.')
         
     st.write(ingredients_string)
 
